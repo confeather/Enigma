@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace Enigma
 {
-    class Reflector
+    public class Reflector
     {
-        int[] config;
+        public int[] original;
+        //反射规则
+        public int[] config;
 
-        public Reflector (int[] config)
+        public Reflector (int[] configs)
         {
-            this.config = new int[26];
-            for (int i = 0; i < 13; i++)
+            original = configs;
+            //config = configs;
+            config = new int[26];
+            for (int i = 0; i < 26; i++)
             {
-                this.config[config[i * 2]] = config[i * 2 + 1];
-                this.config[config[i * 2 + 1]] = config[i * 2];
+                //默认反射规则
+                //config[i] = configs[25-i];
+                config[configs[i]] = configs[25 - i];
+                //Console.WriteLine(config[i]);
+
+
+                //config[configs[i * 2]] = configs[i * 2 + 1];
+                //config[configs[i * 2 + 1]] = configs[i * 2];
+                //Console.WriteLine(config[configs[i * 2]]);
+                //Console.WriteLine(config[configs[i * 2 + 1]]);
             }
+           
         }
 
         public int Reflect(int input)
