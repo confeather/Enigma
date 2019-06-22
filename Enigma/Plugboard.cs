@@ -28,6 +28,7 @@ namespace Enigma
         /// <param name="second"></param>
         public void AddConnection (string first, string second)
         {
+            //两字母转为大写
             first = first.ToUpper();
             second = second.ToUpper();
             //两边相同则返回
@@ -36,11 +37,12 @@ namespace Enigma
             char firstChar = first[0], secondChar = second[0];
             //非字母表中字符则返回
             if (!alphabet.Contains(firstChar) || !alphabet.Contains(secondChar)) return;
-            //得到两边的字母对应数字
+            //得到两边的字母对应索引
             int firstIndex = alphabet.IndexOf(firstChar), secondIndex = alphabet.IndexOf(secondChar);
-            //两字母交换
+            //先前交换规则还原
             config[config[firstIndex]] = config[firstIndex];
             config[config[secondIndex]] = config[secondIndex];
+            //新交换规则
             config[firstIndex] = secondIndex;
             config[secondIndex] = firstIndex;
         }
@@ -73,7 +75,7 @@ namespace Enigma
                 {
                     foundConnections.Add(i);
                     foundConnections.Add(config[i]);
-                    connections.Add(alphabet[config[i]] + " to " + alphabet[i]);
+                    connections.Add(alphabet[config[i]] + " <----> " + alphabet[i]);
                 }
             }
 

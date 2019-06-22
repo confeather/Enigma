@@ -41,7 +41,6 @@ namespace Enigma
             UpdateForm();
             loaded = true;
         }
-
         /// <summary>
         /// 更新交换规则
         /// </summary>
@@ -63,15 +62,8 @@ namespace Enigma
                 }
 
             }
-            //Console.WriteLine(configs[secondIndex]);
-            //Console.WriteLine(index);
-            //Console.WriteLine(configs[index]);
             configs[index] = configs[firstIndex];
-            //Console.WriteLine(configs[index]);
-            //Console.WriteLine(configs[firstIndex]);
             configs[firstIndex] = secondIndex;
-            //Console.WriteLine(configs[firstIndex]);
-
             //更新页面
             UpdateForm();
         }

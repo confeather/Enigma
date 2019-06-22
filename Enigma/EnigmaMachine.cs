@@ -31,7 +31,7 @@ namespace Enigma
             rotor3 = rotors[2];
             //默认反射板
             reflector = new Reflector(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 });
-            //插线板
+            //连线板
             plugboard = new Plugboard();
 
             alphaToNumber = new Dictionary<char, int>();
@@ -54,19 +54,18 @@ namespace Enigma
             //从第二位字符开始要变更转子位置
             rotorPosition -= prevLength;
             input = input.ToUpper();
-
             foreach (char letter in input)
             {
                 if (!alphabet.Contains(letter)) continue;
                 //得到字母序号    
                 int charValue = alphaToNumber[letter];
-                //插线板替换
+                //连线板替换
                 charValue = plugboard.Pass(charValue);
                 //三次替换计算
                 charValue = rotor1.Forward(charValue, RotorPosition1());
                 charValue = rotor2.Forward(charValue, RotorPosition2());
                 charValue = rotor3.Forward(charValue, RotorPosition3());
-                //反射板
+                //反射器
                 charValue = reflector.Reflect(charValue);
                 //原路返回
                 charValue = rotor3.Backward(charValue, RotorPosition3());
@@ -74,7 +73,6 @@ namespace Enigma
                 charValue = rotor1.Backward(charValue, RotorPosition1());
                 //返回插线板
                 charValue = plugboard.Pass(charValue);
-
                 //结果
                 result += alphabet[charValue];
                 //每个字符都会让转子移动

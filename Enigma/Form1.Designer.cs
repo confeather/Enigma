@@ -169,7 +169,7 @@
             this.plugboardLabel.Name = "plugboardLabel";
             this.plugboardLabel.Size = new System.Drawing.Size(82, 15);
             this.plugboardLabel.TabIndex = 15;
-            this.plugboardLabel.Text = "插线板规则";
+            this.plugboardLabel.Text = "连线板规则";
             // 
             // leftPlugcomboBox
             // 

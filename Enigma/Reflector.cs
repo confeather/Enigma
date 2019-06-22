@@ -23,14 +23,7 @@ namespace Enigma
                 //config[i] = configs[25-i];
                 config[configs[i]] = configs[25 - i];
                 //Console.WriteLine(config[i]);
-
-
-                //config[configs[i * 2]] = configs[i * 2 + 1];
-                //config[configs[i * 2 + 1]] = configs[i * 2];
-                //Console.WriteLine(config[configs[i * 2]]);
-                //Console.WriteLine(config[configs[i * 2 + 1]]);
             }
-           
         }
 
         public int Reflect(int input)

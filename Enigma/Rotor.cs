@@ -22,7 +22,7 @@ namespace Enigma
             }
         }
         /// <summary>
-        /// 替换
+        /// 求出本转子正向输出
         /// </summary>
         /// <param name="input"></param>
         /// <param name="offset"></param>
@@ -32,7 +32,7 @@ namespace Enigma
             return mod(forwardConfig[mod(input + offset, 26)] - offset, 26);
         }
         /// <summary>
-        /// 得到来自上一转子的输出
+        /// 求出本转子逆向输出
         /// </summary>
         /// <param name="input"></param>
         /// <param name="offset"></param>
